@@ -22,8 +22,8 @@ public class CarDAOImp implements CarDAO {
 
 
     @Override
-    public List<Car> returnGivenNumberCars(Integer n) {
-        if(n != null && n < carsList.size()) {
+    public List<Car> returnGivenNumberCars(int n) {
+        if(n < carsList.size()) {
             return carsList.stream().limit(n).collect(Collectors.toList());
         }
         return carsList;

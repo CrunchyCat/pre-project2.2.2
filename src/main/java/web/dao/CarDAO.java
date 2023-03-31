@@ -5,5 +5,5 @@ import web.models.Car;
 import java.util.List;
 
 public interface CarDAO {
-    List<Car> returnGivenNumberCars(Integer n);
+    List<Car> returnGivenNumberCars(int n);
 }
