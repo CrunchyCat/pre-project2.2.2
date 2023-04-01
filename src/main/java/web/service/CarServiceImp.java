@@ -6,6 +6,8 @@ import web.dao.CarDAO;
 import web.models.Car;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class CarServiceImp implements CarService {
 
@@ -15,10 +17,13 @@ public class CarServiceImp implements CarService {
         this.carDAO = carDAO;
     }
 
-
+    //Работа со списком машин
     @Override
     public List<Car> returnGivenNumberCars(int n) {
-        return carDAO.returnGivenNumberCars(n);
+        if(n < carDAO.returnCars().size()) {
+            return carDAO.returnCars().stream().limit(n).collect(Collectors.toList());
+        }
+        return carDAO.returnCars();
     }
 
 
